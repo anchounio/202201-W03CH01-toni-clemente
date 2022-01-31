@@ -15,17 +15,18 @@ characters.forEach((character) => {
  <li class="character col">
                     <div class="card character__card">
                         <img
-                            src="img/no-one.jpg"
+                            src="${character.image}"
                             alt="Nombre y familia del personaje"
                             class="character__picture card-img-top"
                         />
                         <div class="card-body">
                             <h2 class="character__name card-title h4">
-                                Nombre y familia
+                                ${character.name}
+                                ${character.family}
                             </h2>
                             <div class="character__info">
                                 <ul class="list-unstyled">
-                                    <li>Edad: ${character.age} años</li>
+                                    <li>Edad: ${character.age}</li>
                                     <li>
                                         Estado:
                                         <i class="fas fa-thumbs-down"></i>
@@ -44,10 +45,10 @@ characters.forEach((character) => {
                                 </ul>
                                 <div class="character__actions">
                                     <button class="character__action btn">
-                                        habla
+                                        ${character.message}
                                     </button>
                                     <button class="character__action btn">
-                                        muere
+                                        ${character.message}
                                     </button>
                                 </div>
                             </div>
@@ -57,52 +58,8 @@ characters.forEach((character) => {
                 </li>`;
 
     //console.log(template);
+    if (typeof character.weapon === undefined) {
+        character.weapon = "";
+    }
     document.querySelector(".characters-list").innerHTML += template;
 });
-
-/*
-<li class="character col">
-                    <div class="card character__card">
-                        <img
-                            src="img/no-one.jpg"
-                            alt="Nombre y familia del personaje"
-                            class="character__picture card-img-top"
-                        />
-                        <div class="card-body">
-                            <h2 class="character__name card-title h4">
-                                Nombre y familia
-                            </h2>
-                            <div class="character__info">
-                                <ul class="list-unstyled">
-                                    <li>Edad: X años</li>
-                                    <li>
-                                        Estado:
-                                        <i class="fas fa-thumbs-down"></i>
-                                        <i class="fas fa-thumbs-up"></i>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="character__overlay">
-                                <ul class="list-unstyled">
-                                    <li>Años de reinado: X</li>
-                                    <li>Arma: XXX</li>
-                                    <li>Destreza: X</li>
-                                    <li>Peloteo: X</li>
-                                    <li>Asesora a: X</li>
-                                    <li>Sirve a: X</li>
-                                </ul>
-                                <div class="character__actions">
-                                    <button class="character__action btn">
-                                        habla
-                                    </button>
-                                    <button class="character__action btn">
-                                        muere
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <i class="emoji"></i>
-                    </div>
-                </li>
-
-                */
